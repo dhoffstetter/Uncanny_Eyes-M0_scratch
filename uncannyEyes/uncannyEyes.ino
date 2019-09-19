@@ -1,3 +1,6 @@
+// Diane Hoffstetter - 09/18/2019
+// This project uses the uncannyEyes code taken from Adafruit.
+//
 //--------------------------------------------------------------------------
 // Uncanny eyes for Adafruit 1.5" OLED (product #1431) or 1.44" TFT LCD
 // (#2088).  Works on PJRC Teensy 3.x and on Adafruit M0 and M4 boards

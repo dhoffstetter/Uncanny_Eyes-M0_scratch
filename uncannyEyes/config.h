@@ -1,6 +1,11 @@
-// Halloween box - works with Teensy
+// Diane Hoffstetter - 09/18/2019
+// This project uses the uncannyEyes code taken from Adafruit.
 
-// WORKS with M0, each eye on a different select pin
+// This project is designed to use with:
+// - Teensy3.2
+// - MP3 player:
+// - PIR sensor and Button
+// - 2 LED displays: Adafruit 1.44" Color TFT LCD Display with MicroSD Card breakout - ST7735R
 
 // Pin selections here are based on the original Adafruit Learning System
 // guide for the Teensy 3.x project.  Some of these pin numbers don't even
