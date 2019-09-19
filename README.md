@@ -11,4 +11,8 @@ Directory 'uncannyEyes' contains Arduino sketch for PJRC Teensy 3.1 & Adafruit M
 
 Folder 'convert' contains Python sketch for generating graphics header files. Requires Python Imaging Library. Example images are also in this directory.
 
-This version is used for Teensy32 with sound and PIR. DMH 9/18/19
+*****************
+
+The rat box project started from the Uncanny Eyes project from Adafruit.
+From there, I added in the ability to add sound using a separate MP3 player.
+When a button is pushed or PIR is triggered, the eyes will close and a sound will play.  
