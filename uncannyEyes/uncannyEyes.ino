@@ -185,6 +185,10 @@ void setup(void) {
   pinMode(PIR_PIN, INPUT); 
 #endif
 
+#if defined(LITE_PIN) && (LITE_PIN >= 0)
+  pinMode(LITE_PIN, OUTPUT); 
+#endif
+
 #if defined(DISPLAY_RESET) && (DISPLAY_RESET >= 0)
   // Because both displays share a common reset pin, -1 is passed to
   // the display constructor above to prevent the begin() function from
@@ -194,6 +198,9 @@ void setup(void) {
   pinMode(DISPLAY_RESET, OUTPUT);
   digitalWrite(DISPLAY_RESET, LOW);  delay(1);
   digitalWrite(DISPLAY_RESET, HIGH); delay(50);
+  #if defined(LITE_PIN) && (LITE_PIN >= 0)
+    digitalWrite(LITE_PIN, HIGH); 
+  #endif
   // Alternately, all display reset pin(s) could be connected to the
   // microcontroller reset, in which case DISPLAY_RESET should be set
   // to -1 or left undefined in config.h.
@@ -727,9 +734,13 @@ void frame( // Process motion for a single frame of left or right eye
 #if defined(BLINK_PIN) && (BLINK_PIN >= 0)
     if(digitalRead(BLINK_PIN) == LOW) {
 //    if(digitalRead(BLINK_PIN) == LOW && blinkEnable == 1) {
-      for (int i = 0; i< NUM_EYES; i++){
-        drawEye(i, iScale, eyeX, eyeY, 255, 255);
-      }
+//      for (int i = 0; i< NUM_EYES; i++){
+//        drawEye(i, iScale, eyeX, eyeY, 255, 255);
+//      }
+
+      #if defined(LITE_PIN) && (LITE_PIN >= 0)
+        digitalWrite(LITE_PIN, LOW); 
+      #endif
       
       Serial.print("Blink Delay Button...\n");
       Serial.print("Play MP3");
@@ -741,15 +752,22 @@ void frame( // Process motion for a single frame of left or right eye
         mp3.play(001);     // Play mp3 001 in folder 1
         delay(500);        
       }
+      #if defined(LITE_PIN) && (LITE_PIN >= 0)
+        digitalWrite(LITE_PIN, HIGH); 
+      #endif      
     }
 #endif
 
 #if defined(PIR_PIN) && (PIR_PIN >= 0)
     if(digitalRead(PIR_PIN) == HIGH) {
-      for (int i = 0; i< NUM_EYES; i++){
-        drawEye(i, iScale, eyeX, eyeY, 255, 255);
-      }
-      
+//      for (int i = 0; i< NUM_EYES; i++){
+//        drawEye(i, iScale, eyeX, eyeY, 255, 255);
+//      }
+
+      #if defined(LITE_PIN) && (LITE_PIN >= 0)
+        digitalWrite(LITE_PIN, LOW); 
+      #endif
+            
       Serial.print("Blink Delay PIR...\n");
       Serial.print("Play MP3");
       mp3.play(001);     // Play mp3 001 in folder 1
@@ -760,6 +778,9 @@ void frame( // Process motion for a single frame of left or right eye
         mp3.play(001);     // Play mp3 001 in folder 1
         delay(500);        
       }
+      #if defined(LITE_PIN) && (LITE_PIN >= 0)
+        digitalWrite(LITE_PIN, HIGH); 
+      #endif        
     }
 #endif
 }

@@ -24,8 +24,8 @@
 #endif
 
 // Enable ONE of these #includes -- HUGE graphics tables for various eyes:
-#include "graphics/defaultEye.h"      // Standard human-ish hazel eye -OR-
-//#include "graphics/dragonEye.h"     // Slit pupil fiery dragon/demon eye -OR-
+//#include "graphics/defaultEye.h"      // Standard human-ish hazel eye -OR-
+#include "graphics/dragonEye.h"     // Slit pupil fiery dragon/demon eye -OR-
 //#include "graphics/noScleraEye.h"   // Large iris, no sclera -OR-
 //#include "graphics/goatEye.h"       // Horizontal pupil goat/Krampus eye -OR-
 //#include "graphics/newtEye.h"       // Eye of newt -OR-
@@ -139,6 +139,7 @@ eyeInfo_t eyeInfo[] = {
   #define LIGHT_MIN       0 // Lower reading from sensor
   #define LIGHT_MAX    1023 // Upper reading from sensor
   #define PIR_PIN         4 // Pin for PIR
+  #define LITE_PIN        3 // Pin to turn off backlight on both eyes
 #endif
 #define IRIS_SMOOTH         // If enabled, filter input from IRIS_PIN
 #if !defined(IRIS_MIN)      // Each eye might have its own MIN/MAX
